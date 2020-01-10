@@ -7,5 +7,9 @@ setup(
     name='ptst_swagger',
     version=ptst_swagger.__version__,
     packages=find_packages(),
-    long_description=open(join(dirname(__file__), 'README.md')).read()
+    url='https://github.com/vden68/ptst_swagger',
+    license='',
+    author='Vasiliy Denisov',
+
+    long_description=open(join(dirname(__file__), 'README.md')).read(),
 )
