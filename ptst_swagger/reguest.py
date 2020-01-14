@@ -10,7 +10,7 @@ class RegustsHelper:
         pass
 
     @allure.step('Execute "GET" request url="{url}", data="{data}", headers="{headers}", cookies="{cookies}"')
-    def get(self, url, data=None, params=None, headers=None, cookies=None):
+    def get(url, data, params, headers, cookies):
         response = None
         try:
             response = requests.request(
