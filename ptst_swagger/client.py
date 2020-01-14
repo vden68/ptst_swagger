@@ -9,5 +9,5 @@ class SwaggerClient():
 
     @classmethod
     def get_swagger_json(self, url):
-        swagger_json = rh.get(url=url,data=None, params=None, headers=None, cookies=None)
-        return swagger_json
+        swagger_response = rh.get(url=url,data=None, params=None, headers=None, cookies=None)
+        return swagger_response
