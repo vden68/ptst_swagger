@@ -9,8 +9,8 @@ class RegustsHelper:
     def __init__(self):
         pass
 
-    @allure.step('Execute "GET" request url="{url}", data="{data}", headers="{headers}", cookies="{cookies}"')
-    def get(url, data, params, headers, cookies):
+    @allure.step('Execute "GET" request ')
+    def get(url, data=None, params=None, headers=None, cookies=None):
         response = None
         try:
             response = requests.request(

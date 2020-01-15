@@ -1,5 +1,6 @@
 __author__ = 'v.denisov'
 
+import allure
 from ptst_swagger.reguest import RegustsHelper as rh
 
 
@@ -27,8 +28,8 @@ class ConfigHost():
         self._url_host = value
 
     @classmethod
+    @allure.step("get swagger json")
     def get_swagger_json(self, url):
-        swagger_response = rh.get(url=url,data=None, params=None, headers=None, cookies=None)
-        paths_sw = swagger_response.json()['paths']
-        self.paths_sw = paths_sw
+        swagger_response = rh.get(url=url)
+        self.paths_sw = swagger_response.json()['paths']
         return swagger_response

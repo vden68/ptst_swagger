@@ -7,4 +7,8 @@ class SwaggerClient():
     def __init__(self):
         pass
 
+    @classmethod
+    def get_paths_sw(self):
+        return config.paths_sw
+
 
