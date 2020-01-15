@@ -1,13 +1,10 @@
 __author__ = 'v.denisov'
 
-from ptst_swagger.reguest import RegustsHelper as rh
+from ptst_swagger.config_host import ConfigHost as config
 
 class SwaggerClient():
 
     def __init__(self):
         pass
 
-    @classmethod
-    def get_swagger_json(self, url):
-        swagger_response = rh.get(url=url,data=None, params=None, headers=None, cookies=None)
-        return swagger_response
+
