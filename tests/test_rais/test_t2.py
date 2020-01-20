@@ -6,3 +6,5 @@ def test_t2(rais):
     for rx in r:
         print('rx=', rx)
     print('r=', r)
+    r2 = rais.get()
+    print('r2=', r2.cookies)

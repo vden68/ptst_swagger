@@ -27,6 +27,14 @@ class ConfigHost():
     def set_url_host(self, value):
         self._url_host = value
 
+    @property
+    def cookies(self):
+        return self._cookies
+
+    @cookies.setter
+    def set_cookies(self, value):
+        self._cookies = value
+
     @classmethod
     @allure.step("get swagger json")
     def get_swagger_json(self, url):
