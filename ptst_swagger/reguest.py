@@ -29,13 +29,13 @@ class RegustsHelper:
             print('Success!')
         return response
 
-    @allure.step('Execute "POST" request url="{url}", data="{data}", headers="{headers}", cookies="{cookies}"')
-    def post(self, url, data=None, params=None):
+    @allure.step('Execute "POST" request ')
+    def post(url, data=None, params=None, headers=None, cookies=None):
         response = None
         try:
             response = requests.request(
-                "POST", url, data=data, headers=self.app.headers, params=params,
-                cookies=self.app.cookies, timeout=20,  verify=False)
+                "POST", url, data=data, headers=headers, params=params,
+                cookies=cookies, timeout=20,  verify=False)
         except requests.exceptions.ConnectTimeout:
             print('Oops. Connection timeout occured!')
         except requests.exceptions.ReadTimeout:

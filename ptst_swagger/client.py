@@ -20,7 +20,15 @@ class SwaggerClient():
         url = config.url_host + paths
         cookies = config.cookies
         response = rh.get(url=url, cookies=cookies)
+        return response
 
+    @classmethod
+    @allure.step('post')
+    def post(self, paths='', data=None, params=None, headers=None):
+        url = config.url_host + paths
+        cookies = config.cookies
+        print('cookies=', cookies)
+        response = rh.post(url=url, cookies=cookies, data=data, params=params, headers=headers)
         return response
 
 
