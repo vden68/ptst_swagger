@@ -10,9 +10,19 @@ class SwaggerClient():
         pass
 
     @classmethod
-    @allure.step('get paths sw')
+    @allure.step('get paths_sw')
     def get_paths_sw(self):
         return config.paths_sw
+
+    @classmethod
+    @allure.step('set url_host')
+    def set_url_host(self, value):
+        config.url_host = value
+
+    @classmethod
+    @allure.step('get url_host')
+    def get_url_host(self):
+        return config.url_host
 
     @classmethod
     @allure.step('get')
