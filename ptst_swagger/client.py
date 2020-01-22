@@ -45,18 +45,26 @@ class SwaggerClient():
         return config.header
 
     @classmethod
+    def setting_parameters(cls, cookies, headers):
+        if cookies is None:
+            cookies = config.cookies
+        if headers is None:
+            headers = config.headers
+        return cookies, headers
+
+    @classmethod
     @allure.step('get')
-    def get(self, paths=''):
+    def get(self, paths='', cookies=None, params=None, headers=None):
         url = config.url_host + paths
-        cookies = config.cookies
-        response = rh.get(url=url, cookies=cookies)
+        cookies, headers = self.setting_parameters(cookies, headers)
+        response = rh.get(url=url, cookies=cookies, params=params, headers=headers)
         return response
 
     @classmethod
     @allure.step('post')
-    def post(self, paths='', data=None, params=None, headers=None):
+    def post(self, paths='', cookies=None, data=None, params=None, headers=None):
         url = config.url_host + paths
-        cookies = config.cookies
+        cookies, headers = self.setting_parameters(cookies, headers)
         print('cookies=', cookies)
         response = rh.post(url=url, cookies=cookies, data=data, params=params, headers=headers)
         return response

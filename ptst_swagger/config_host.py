@@ -10,7 +10,7 @@ class ConfigHost():
         self._paths_sw = None
         self._url_host = None
         self._cookies = None
-        self._header = None
+        self._headers = None
 
     @property
     def paths_sw(self):
@@ -37,12 +37,12 @@ class ConfigHost():
         self._cookies = value
 
     @property
-    def header(self):
-        return self._header
+    def headers(self):
+        return self._headers
 
-    @header.setter
-    def set_header(self, value):
-        self._header = value
+    @headers.setter
+    def set_headers(self, value):
+        self._headers = value
 
     @classmethod
     @allure.step("get swagger json")
