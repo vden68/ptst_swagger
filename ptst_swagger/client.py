@@ -35,14 +35,14 @@ class SwaggerClient():
         return config.cookies
 
     @classmethod
-    @allure.step('set header')
-    def set_header(self, header):
-        config.header = header
+    @allure.step('set headers')
+    def set_headers(self, headers):
+        config.headers = headers
 
     @classmethod
-    @allure.step('get header')
-    def get_header(self):
-        return config.header
+    @allure.step('get headers')
+    def get_headers(self):
+        return config.headers
 
     @classmethod
     def setting_parameters(cls, cookies, headers):
