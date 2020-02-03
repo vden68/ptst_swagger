@@ -1,7 +1,10 @@
 import allure
+#from ptst_swagger.client import SwaggerClient
 
 @allure.title(" Тестируем  test_t2")
+# @SwaggerClient.record_test("GET", '/test', '1')
 def test_t2(rais):
+    rais.record_test("GET", '/test', '1')
     r = rais.get_paths_sw()
     for rx in r:
         print('rx=', rx)

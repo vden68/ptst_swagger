@@ -3,6 +3,7 @@ __author__ = 'v.denisov'
 import allure
 from ptst_swagger.config_host import ConfigHost as config
 from ptst_swagger.reguest import RegustsHelper as rh
+from ptst_swagger.swagger_model import SwaggerModel as swm
 
 class SwaggerClient():
 
@@ -69,5 +70,15 @@ class SwaggerClient():
         url, cookies, headers = self.setting_parameters(url, paths, cookies, headers)
         response = rh.post(url=url, cookies=cookies, data=data, params=params, headers=headers)
         return response
+
+    @classmethod
+    def record_test(self, method, path, text):
+        if not type(swm.record_test) == int:
+            swm.record_test = 0
+        print('swm.record_test=', type(swm.record_test))
+        if not swm.record_test:
+            swm.record_test_to_list(method, path, text)
+            print(swm.record_test)
+
 
 
