@@ -31,9 +31,16 @@ class SwaggerModel:
         if not type(self.record_test_list) == list:
             self.record_test_list=[]
         r_list = self.record_test_list
-        r_list.append(TestsToSwagger(method=method, path=path, text=text))
+        r_l_n = 0
+        for r_l in r_list:
+            if (r_l.method in method) and (r_l.path in path) and len(r_l.path)==len(path):
+                r_list[r_l_n].text = str(int(r_l.text)+1)
+                break
+            r_l_n = r_l_n + 1
+        else:
+            r_list.append(TestsToSwagger(method=method, path=path, text=text))
         self.record_test_list = r_list
-        print('_record_test_list=', self.record_test_list)
+        print('record_test_list=', self.record_test_list)
         r_test_dict = []
         for r_test in self.record_test_list:
             r_test_dict.append({"method":r_test.method, "path":r_test.path, "text":r_test.text})
