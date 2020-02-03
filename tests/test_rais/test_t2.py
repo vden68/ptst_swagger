@@ -5,6 +5,8 @@ import allure
 # @SwaggerClient.record_test("GET", '/test', '1')
 def test_t2(rais):
     rais.record_test("GET", '/test', '1')
+    rais.record_test("GET", '/test', '1')
+    rais.record_test("GET", '/test2', '2')
     r = rais.get_paths_sw()
     for rx in r:
         print('rx=', rx)

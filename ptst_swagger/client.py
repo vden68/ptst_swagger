@@ -75,10 +75,12 @@ class SwaggerClient():
     def record_test(self, method, path, text):
         if not type(swm.record_test) == int:
             swm.record_test = 0
-        print('swm.record_test=', type(swm.record_test))
-        if not swm.record_test:
+        if swm.record_test:
             swm.record_test_to_list(method, path, text)
-            print(swm.record_test)
+
+    @classmethod
+    def inn_record_test(self):
+        swm.record_test = 1
 
 
 
