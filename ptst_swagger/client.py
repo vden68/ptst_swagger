@@ -47,6 +47,10 @@ class SwaggerClient():
 
     @classmethod
     def setting_parameters(cls, url, paths, cookies, headers):
+        if isinstance(config.cookies, property):
+            config.cookies = None
+        if isinstance(config.headers, property):
+            config.headers = None
         if url is None:
             url = config.url_host + paths
         else:

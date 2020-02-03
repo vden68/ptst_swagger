@@ -1,6 +1,7 @@
 __author__ = 'v.denisov'
 
 import json
+import os
 from ptst_swagger.model.tests_to_swagger import TestsToSwagger
 
 
@@ -28,7 +29,8 @@ class SwaggerModel:
 
     @classmethod
     def record_test_to_list(self, method, path, text):
-        if not type(self.record_test_list) == list:
+        print('Type=', self.record_test_list)
+        if isinstance(self.record_test_list, property):
             self.record_test_list=[]
         r_list = self.record_test_list
         r_l_n = 0
@@ -41,13 +43,11 @@ class SwaggerModel:
             r_list.append(TestsToSwagger(method=method, path=path, text=text))
         self.record_test_list = r_list
         print('record_test_list=', self.record_test_list)
-        r_test_dict = []
-        for r_test in self.record_test_list:
-            r_test_dict.append({"method":r_test.method, "path":r_test.path, "text":r_test.text})
-        print('_record_test_list.jsson=', json.dumps(r_test_dict))
 
-        # test_list.append(TestsToSwagger(method=method, path=path, text=text))
-        # print('test_list=', test_list)
-
-
-
+        file_type = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tests.json')
+        with open(file_type, 'w') as out:
+            r_test_dict = []
+            for r_test in self.record_test_list:
+                r_test_dict.append({"method":r_test.method, "path":r_test.path, "text":r_test.text})
+            json.dump(r_test_dict, out,  indent=4)
+            print('_record_test_list.jsson=', json.dumps(r_test_dict))

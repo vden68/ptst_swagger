@@ -131,3 +131,4 @@ dmypy.json
 #test
 /tests/test_rais/conftest2.py
 .idea/
+/ptst_swagger/tests.json

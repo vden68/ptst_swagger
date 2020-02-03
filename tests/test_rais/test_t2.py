@@ -6,6 +6,7 @@ import allure
 def test_t2(rais):
     rais.record_test("GET", '/system/health', '1')
     rais.record_test("POST", '/v1/file', '1')
+    rais.record_test("POST", '/v1/file', '1')
     rais.record_test("GET", '/v1/file/{id}/permission', '1')
     r = rais.get_paths_sw()
     for rx in r:
