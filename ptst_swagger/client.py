@@ -70,9 +70,44 @@ class SwaggerClient():
 
     @classmethod
     @allure.step('post')
-    def post(self, url=None, paths='', cookies=None, data=None, params=None, headers=None):
+    def post(self, url=None, paths='', cookies=None, data=None, params=None, headers=None, files=None):
         url, cookies, headers = self.setting_parameters(url, paths, cookies, headers)
-        response = rh.post(url=url, cookies=cookies, data=data, params=params, headers=headers)
+        response = rh.post(url=url, cookies=cookies, data=data, params=params, headers=headers, files=files)
+        return response
+
+    @classmethod
+    @allure.step('delete')
+    def delete(self, url=None, paths='', cookies=None, data=None, params=None, headers=None, files=None):
+        url, cookies, headers = self.setting_parameters(url, paths, cookies, headers)
+        response = rh.delete(url=url, cookies=cookies, data=data, params=params, headers=headers, files=files)
+        return response
+
+    @classmethod
+    @allure.step('options')
+    def options(self, url=None, paths='', cookies=None, data=None, params=None, headers=None, files=None):
+        url, cookies, headers = self.setting_parameters(url, paths, cookies, headers)
+        response = rh.options(url=url, cookies=cookies, data=data, params=params, headers=headers, files=files)
+        return response
+
+    @classmethod
+    @allure.step('head')
+    def head(self, url=None, paths='', cookies=None, data=None, params=None, headers=None, files=None):
+        url, cookies, headers = self.setting_parameters(url, paths, cookies, headers)
+        response = rh.head(url=url, cookies=cookies, data=data, params=params, headers=headers, files=files)
+        return response
+
+    @classmethod
+    @allure.step('put')
+    def put(self, url=None, paths='', cookies=None, data=None, params=None, headers=None, files=None):
+        url, cookies, headers = self.setting_parameters(url, paths, cookies, headers)
+        response = rh.put(url=url, cookies=cookies, data=data, params=params, headers=headers, files=files)
+        return response
+
+    @classmethod
+    @allure.step('patch')
+    def patch(self, url=None, paths='', cookies=None, data=None, params=None, headers=None, files=None):
+        url, cookies, headers = self.setting_parameters(url, paths, cookies, headers)
+        response = rh.patch(url=url, cookies=cookies, data=data, params=params, headers=headers, files=files)
         return response
 
     @classmethod

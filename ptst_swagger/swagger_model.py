@@ -29,7 +29,13 @@ class SwaggerModel:
 
     @classmethod
     def record_test_to_list(self, method, path, text):
-        print('Type=', self.record_test_list)
+        if not isinstance(method,str):
+            method = str(method)
+        if not isinstance(path,str):
+            path = str(path)
+        if not isinstance(text,str):
+            text = str(text)
+
         if isinstance(self.record_test_list, property):
             self.record_test_list=[]
         r_list = self.record_test_list
@@ -42,14 +48,10 @@ class SwaggerModel:
         else:
             r_list.append(TestsToSwagger(method=method, path=path, text=text))
         self.record_test_list = r_list
-        print('record_test_list=', self.record_test_list)
 
         file_type = os.path.join(os.getcwd(), 'tests.json')
-        print('os.getcwd()=' ,os.getcwd())
-        print('file_type=' ,file_type)
         with open(file_type, 'w') as out:
             r_test_dict = []
             for r_test in self.record_test_list:
                 r_test_dict.append({"method":r_test.method, "path":r_test.path, "text":r_test.text})
             json.dump(r_test_dict, out,  indent=4)
-            print('_record_test_list.jsson=', json.dumps(r_test_dict))
