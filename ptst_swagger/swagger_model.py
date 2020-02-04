@@ -44,7 +44,9 @@ class SwaggerModel:
         self.record_test_list = r_list
         print('record_test_list=', self.record_test_list)
 
-        file_type = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tests.json')
+        file_type = os.path.join(os.getcwd(), 'tests.json')
+        print('os.getcwd()=' ,os.getcwd())
+        print('file_type=' ,file_type)
         with open(file_type, 'w') as out:
             r_test_dict = []
             for r_test in self.record_test_list:
